@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+chromadb
+openai>=1.10.0
+pypdf
+markdown2
+python-dotenv
+streamlit
+typing-extensions
