@@ -1,0 +1,3 @@
+These notes demonstrate how the retrieval system works.
+Chunking will split this into smaller pieces with overlap.
+Use the /ingest endpoint to index files from the data/raw folder.
