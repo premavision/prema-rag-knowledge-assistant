@@ -1,7 +1,7 @@
 fastapi
 uvicorn[standard]
-pydantic
-pydantic-settings
+pydantic>=2.0
+pydantic-settings>=2.0
 chromadb
 openai>=1.10.0
 pypdf

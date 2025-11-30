@@ -45,6 +45,9 @@ class IngestionService:
 
     async def _process_document(self, content: DocumentContent) -> IngestResult:
         try:
+            # Remove old chunks for this document path before adding new ones
+            await self.vector_store.delete_by_path(content.document.path)
+            
             chunks = self._build_chunks(content)
             if not chunks:
                 return IngestResult(document=content.document, chunks=0, error="No text extracted")

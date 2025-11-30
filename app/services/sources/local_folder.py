@@ -1,7 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
-from uuid import uuid4
+from uuid import uuid5, NAMESPACE_URL
 
 from app.models.document import Document, DocumentContent
 from app.services.parsers.markdown_parser import parse_markdown
@@ -42,8 +42,12 @@ class LocalFolderSource(DocumentSource):
             created = datetime.fromtimestamp(stat.st_ctime)
             updated = datetime.fromtimestamp(stat.st_mtime)
 
+            # Use deterministic UUID based on file path to avoid duplicates
+            file_path_str = str(filepath.resolve())
+            document_id = str(uuid5(NAMESPACE_URL, file_path_str))
+
             document = Document(
-                id=str(uuid4()),
+                id=document_id,
                 source="local",
                 path=str(filepath),
                 title=filepath.name,

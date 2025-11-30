@@ -21,3 +21,8 @@ class VectorStore(ABC):
     def list_documents(self) -> List[Tuple[str, str]]:
         """Return list of (document_id, title) present in the store."""
         ...
+
+    async def delete_by_path(self, path: str) -> None:
+        """Delete all chunks for a document with the given path. Optional method for deduplication."""
+        # Default implementation does nothing - subclasses can override
+        pass

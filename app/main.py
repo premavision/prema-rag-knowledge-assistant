@@ -1,3 +1,6 @@
+# Apply chromadb/pydantic compatibility patch early
+import app  # noqa: F401
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 

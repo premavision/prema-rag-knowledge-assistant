@@ -22,9 +22,12 @@ class JsonDocumentStore:
 
     def upsert(self, document: Document) -> None:
         existing = self.load_all()
-        by_id: Dict[str, Document] = {doc.id: doc for doc in existing}
-        by_id[document.id] = document
-        self.save_all(list(by_id.values()))
+        # Deduplicate by path - remove all old documents with same path
+        # Keep only documents with different paths
+        filtered = [doc for doc in existing if doc.path != document.path]
+        # Add the new/updated document
+        filtered.append(document)
+        self.save_all(filtered)
 
     def get(self, document_id: str) -> Optional[Document]:
         for doc in self.load_all():
