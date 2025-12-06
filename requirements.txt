@@ -9,3 +9,7 @@ markdown2
 python-dotenv
 streamlit
 typing-extensions
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+playwright>=1.40.0
+httpx>=0.25.0

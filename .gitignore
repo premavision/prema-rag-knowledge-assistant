@@ -159,6 +159,8 @@ Desktop.ini
 # Generated data directories
 data/processed/
 data/vectorstore/
+# E2E test data
+data/test_e2e/
 # Keep data/raw/ structure but ignore user content (uncomment if you want to ignore all raw data)
 # data/raw/*
 # !data/raw/.gitkeep
@@ -182,4 +184,5 @@ chroma.sqlite3
 # Environment variables
 .env.local
 .env.*.local
+
 

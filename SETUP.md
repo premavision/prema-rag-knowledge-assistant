@@ -119,3 +119,4 @@ Make sure your `OPENAI_API_KEY` is set in the `.env` file. Without it, the embed
   - `vectorstore/` - ChromaDB vector store
 - `tests/` - Unit tests
 
+
